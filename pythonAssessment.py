@@ -19,21 +19,21 @@ class NewsArticleAnalyzer:
             if token.is_alpha and not token.is_stop
         ]
 
-    def word_count(self, target_word: str) -> int:
+    def count_specific_word(self, target_word: str) -> int:
         return sum(token.text.lower() == target_word.lower() for token in self.doc)
 
-    def most_common_word(self) -> tuple:
+    def identify_most_common_word(self) -> tuple:
         counter = Counter(self.words)
         return counter.most_common(1)[0] if counter else ("", 0)
 
-    def average_word_length(self) -> float:
+    def calculate_average_word_length(self) -> float:
         lengths = [len(token.text) for token in self.doc if token.is_alpha]
         return sum(lengths) / len(lengths) if lengths else 0
 
-    def paragraph_count(self) -> int:
+    def count_paragraphs(self) -> int:
         return sum(1 for p in self.text.split("\n") if p.strip())
 
-    def sentence_count(self) -> int:
+    def count_sentences(self) -> int:
         return sum(1 for _ in self.doc.sents)
 
 
@@ -61,8 +61,8 @@ if __name__ == "__main__":
 
     target_word = "apple"
 
-    print(f"Occurrences of '{target_word}':", analyzer.word_count(target_word))
-    print("Most common word:", analyzer.most_common_word())
-    print("Average word length:", round(analyzer.average_word_length(), 2))
-    print("Number of paragraphs:", analyzer.paragraph_count())
-    print("Number of sentences:", analyzer.sentence_count())
+    print(f"Occurrences of '{target_word}':", analyzer.count_specific_word(target_word))
+    print("Most common word:", analyzer.identify_most_common_word())
+    print("Average word length:", round(analyzer.calculate_average_word_length(), 2))
+    print("Number of paragraphs:", analyzer.count_paragraphs())
+    print("Number of sentences:", analyzer.count_sentences())

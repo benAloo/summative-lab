@@ -5,7 +5,7 @@ A simple project to analyze a news article using spaCy and python-docx.
 ## Overview
 
 This repository includes:
-- `pythonAssessment.ipynb`: main notebook implementing `NewsArticleAnalyzer`
+- `pythonAssessment.py`: main script implementing `NewsArticleAnalyzer`
 - `News Article for Python Assessment.docx`: sample input text document
 
 The analyzer computes:
@@ -30,7 +30,11 @@ python -m spacy download en_core_web_sm
 
 ## Usage
 
-Run the notebook `pythonAssessment.ipynb` in Jupyter/VS Code (or convert to script). It loads `News Article for Python Assessment.docx`, analyzes the text, and prints metrics.
+Run the script `pythonAssessment.py` in your integrated terminal
+```bash
+python -u pythonAssessment.py
+```
+. It loads `News Article for Python Assessment.docx`, analyzes the text, and prints metrics.
 
 ## Notes
 
